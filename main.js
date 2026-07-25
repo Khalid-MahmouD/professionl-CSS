@@ -11,7 +11,5 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       navToggle.setAttribute("aria-expanded", "false");
     }
-
-    console.log(navOpen);
   });
 });
