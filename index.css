@@ -150,6 +150,12 @@
 }
 
 @layer base {
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+      scroll-padding: 3rem;
+    }
+  }
   body {
     font-family: var(--ff-body);
     font-size: var(--font-size-regular);
@@ -182,12 +188,27 @@
 }
 
 @layer layout {
+  .flex-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
   .flow > * + * {
     margin-block-start: var(--flow-spacer, 1em);
   }
   .grid-flow {
     display: grid;
     gap: var(--grid-flow-gap, 1rem);
+  }
+
+  .grid-auto-fit {
+    --auto-fit-min-col-size: 250px;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(var(--auto-fit-min-col-size), 100%), 1fr)
+    );
   }
   .equal-columns {
     display: grid;
@@ -364,8 +385,70 @@
     }
   }
 
-  .card {
+  .mushroom-guide {
+    --card-title-font-size: var(--font-size-lg);
+    --card-title-color: var(--text-high-contrast);
+    --card-gap: 0.75rem;
+  }
+
+  .faq-bento {
+    --card-title-color: var(--text-high-contrast);
     display: grid;
+    gap: 1rem;
+    grid-template-areas:
+      "card-one"
+      "card-two"
+      "card-three"
+      "card-four";
+
+    @media (width > 600px) {
+      grid-template-areas:
+        "card-one card-two"
+        "card-three card-four";
+    }
+    @media (width > 900px) {
+      grid-template-areas:
+        "card-one   card-two   card-four"
+        "card-three card-three card-four";
+    }
+    .card > img {
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    @media (width > 600px) {
+      .card:nth-child(even) > img {
+        order: 3;
+      }
+    }
+    .card:nth-child(1) {
+      grid-area: card-one;
+    }
+    .card:nth-child(2) {
+      grid-area: card-two;
+    }
+
+    .card:nth-child(3) {
+      grid-area: card-three;
+      @media (width > 900px) {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(2, 1fr);
+
+        img {
+          grid-column: 1/2;
+          grid-row: 1/3;
+        }
+      }
+    }
+    .card:nth-child(4) {
+      grid-area: card-four;
+    }
+  }
+  .card {
+    /* display: grid; */
+    display: flex;
+    flex-direction: column;
     gap: var(--card-gap, 1rem);
     padding: 1rem;
     background-color: var(--background-light);
@@ -379,6 +462,47 @@
   .card__title {
     font-size: var(--card-title-font-size, var(--font-size-heading-sm));
     color: var(--card-title-color, var(--text-brand));
+  }
+
+  .card__note {
+    /* use all the spaces to be up */
+    margin-block-start: auto;
+    background-color: var(--background-extra-light);
+    padding: 0.75rem;
+    border-radius: var(--border-radius-2);
+  }
+
+  .tag-list {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+
+    li {
+      font-family: var(--ff-heading);
+      color: var(--text-high-contrast);
+      font-size: var(--font-size-sm);
+      border-radius: var(--border-radius-1);
+      padding: 0rem 0.25rem;
+      background-color: var(--tag-bg, red);
+    }
+
+    [data-edible="edible"] {
+      --tag-bg: var(--background-accent-main);
+    }
+
+    [data-edible="toxic"] {
+      --tag-bg: var(--clr-red-500);
+    }
+
+    [data-season="summer"] {
+      --tag-bg: var(--background-accent-main);
+    }
+    [data-season="sprint"] {
+      --tag-bg: var(--clr-teal-500);
+    }
+    [data-season="fall"] {
+      --tag-bg: var(--clr-orange-500);
+    }
   }
 
   .button {
@@ -397,7 +521,16 @@
     color: var(--high-contrast);
     background-color: var(--background-accent-light);
   }
+
+  select {
+    padding: 0.5rem 1rem;
+    background-color: var(--background-accent-main);
+    border: 0;
+    border-radius: var(--border-radius-2);
+    color: var(--text-high-contrast);
+  }
 }
+
 @layer utilities {
   .text-center {
     text-align: center;
