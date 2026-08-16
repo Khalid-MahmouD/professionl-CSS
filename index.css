@@ -115,9 +115,6 @@
       --fs-900: 5rem;
       --fs-1000: 7.5rem;
     }
-  }
-  /* in another selector for syntax highlighting reasons only */
-  :root {
     --text-main: var(--clr-gray-100);
     --text-high-contrast: var(--clr-white);
     --text-brand: var(--clr-brand-500);
@@ -201,12 +198,12 @@
     gap: var(--grid-flow-gap, 1rem);
   }
 
-  .grid-auto-fit {
+  .grid-auto-fill {
     --auto-fit-min-col-size: 250px;
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(
-      auto-fit,
+      auto-fill,
       minmax(min(var(--auto-fit-min-col-size), 100%), 1fr)
     );
   }
@@ -446,7 +443,6 @@
     }
   }
   .card {
-    /* display: grid; */
     display: flex;
     flex-direction: column;
     gap: var(--card-gap, 1rem);
@@ -532,6 +528,9 @@
 }
 
 @layer utilities {
+  [hidden] {
+    display: none;
+  }
   .text-center {
     text-align: center;
   }
@@ -588,4 +587,8 @@
     white-space: nowrap;
     width: 1px;
   }
+}
+
+@view-transition {
+  navigation: auto;
 }
