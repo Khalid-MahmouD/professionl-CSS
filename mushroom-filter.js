@@ -21,7 +21,7 @@ function updateFilter(e) {
   const filterType = e.target.name;
   currentFilters[filterType] = e.target.value;
 
-  if (!document.startViewTransition()) {
+  if (!document.startViewTransition) {
     filterCards();
     return;
   }
@@ -30,6 +30,7 @@ function updateFilter(e) {
 
 function filterCards() {
   let hasVisibleCards = false;
+
   cards.forEach((card) => {
     const season = card.querySelector("[data-season]").dataset.season;
     const edible = card.querySelector("[data-edible]").dataset.edible;
@@ -37,22 +38,17 @@ function filterCards() {
     const matchesSeason = currentFilters.season === season;
     const matchesEdible = currentFilters.edible === edible;
 
-    if (
+    const isVisible =
       (matchesEdible || currentFilters.edible === "all") &&
-      (matchesSeason || currentFilters.season === "all")
-    ) {
-      card.hidden = false;
-      hasVisibleCards = true;
-    } else {
-      card.hidden = true;
-    }
+      (matchesSeason || currentFilters.season === "all");
 
-    if (hasVisibleCards) {
-      noResultsMessage.hidden = true;
-    } else {
-      noResultsMessage.hidden = false;
+    card.hidden = !isVisible;
+    if (isVisible) {
+      hasVisibleCards = true;
     }
   });
+
+  noResultsMessage.hidden = hasVisibleCards;
 }
 
 function enableFiltering() {

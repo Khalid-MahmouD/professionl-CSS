@@ -638,10 +638,30 @@
   }
 }
 
+/* default is cross fade */
 @view-transition {
   navigation: auto;
 }
 
+.site-header img[alt="Fungi Finders Logo"] {
+  view-transition-name: logo;
+}
+
+.hero__title {
+  view-transition-name: page-title;
+}
+
+[data-vt="guide-title"] {
+  view-transition-name: guide-title;
+}
+
 ::view-transition-group(root) {
   animation-duration: 3s;
+}
+::view-transition-old(page-title),
+::view-transition-new(page-title),
+::view-transition-old(logo),
+::view-transition-new(logo) {
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
 }
