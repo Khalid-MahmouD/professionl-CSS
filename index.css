@@ -368,6 +368,7 @@
       display: block;
       opacity: 1;
       translate: 0 0;
+
       @starting-style {
         opacity: 0;
         translate: 0 -100%;
@@ -655,13 +656,9 @@
   view-transition-name: guide-title;
 }
 
-::view-transition-group(root) {
-  animation-duration: 3s;
-}
 ::view-transition-old(page-title),
 ::view-transition-new(page-title),
 ::view-transition-old(logo),
 ::view-transition-new(logo) {
-  animation-duration: 3s;
   animation-timing-function: ease-in-out;
 }
