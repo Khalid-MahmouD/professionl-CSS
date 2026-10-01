@@ -6,6 +6,7 @@ import './App.css'
 // Stable identity demo
 //
 // Two lists share the same shape and operations. The only difference is the
+
 // React key used when rendering:
 //   - IndexKeyList uses key={index}
 //   - StableKeyList uses key={item.id}
