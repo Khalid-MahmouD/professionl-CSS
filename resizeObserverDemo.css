@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    sans-serif;
+  background: #f7f8fa;
+  color: #1f2937;
+  line-height: 1.5;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: 1.75rem;
+}
+
+.explanation {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+}
+
+.controls input[type='range'] {
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+
+#width-display {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  min-width: 4rem;
+}
+
+.observed-wrapper {
+  resize: horizontal;
+  overflow: auto;
+  border: 2px dashed #cbd5e1;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  background: #fff;
+  min-width: 260px;
+  max-width: 100%;
+}
+
+/* ---------------------------------------------------------------
+   Card grid layout switches based on the observed element's width,
+   not the viewport width. The ResizeObserver sets data-size.
+   --------------------------------------------------------------- */
+.card-grid {
+  display: grid;
+  gap: 1rem;
+  /* Default to narrow (single column) as a safe baseline. */
+  grid-template-columns: 1fr;
+}
+
+.card-grid[data-size='wide'] {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 700px) {
+  .card-grid[data-size='wide'] {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.card p {
+  margin: 0;
+  color: #4b5563;
+}
+
+.state-readout {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+}
+
+.state-readout code {
+  background: #f3f4f6;
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.25rem;
+}

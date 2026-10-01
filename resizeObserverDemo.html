@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ResizeObserver Demo</title>
+    <link rel="stylesheet" href="resizeObserverDemo.css" />
+    <script src="resizeObserverDemo.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <h1>ResizeObserver: component-sized layouts</h1>
+
+      <section class="explanation">
+        <p>
+          A viewport media query only knows the browser window width. A
+          <code>ResizeObserver</code> watches the <em>actual size of an element</em>,
+          so a component can adapt when it lives inside a sidebar, modal, split
+          pane, or any container that is not the full viewport.
+        </p>
+      </section>
+
+      <section class="controls">
+        <label for="container-width">Resize the card grid container:</label>
+        <input
+          id="container-width"
+          type="range"
+          min="280"
+          max="900"
+          value="600"
+        />
+        <output for="container-width" id="width-display">600px</output>
+      </section>
+
+      <!-- The element we observe -->
+      <div class="observed-wrapper">
+        <div class="card-grid" data-card-grid data-size="wide">
+          <article class="card">
+            <h2>HTML</h2>
+            <p>Structure and meaning for web content.</p>
+          </article>
+          <article class="card">
+            <h2>CSS</h2>
+            <p>Presentation, layout, and visual design.</p>
+          </article>
+          <article class="card">
+            <h2>JS</h2>
+            <p>Interactivity, behavior, and state.</p>
+          </article>
+          <article class="card">
+            <h2>Accessibility</h2>
+            <p>Inclusive design for all users.</p>
+          </article>
+        </div>
+      </div>
+
+      <section class="state-readout">
+        <p>
+          Current <code>data-size</code> state:
+          <strong id="size-state">wide</strong>
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
