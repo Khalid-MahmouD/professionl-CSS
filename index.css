@@ -1,5 +1,29 @@
 @import "/fonts.css";
 
+/* default is cross fade */
+@view-transition {
+  navigation: auto;
+}
+
+.site-header img[alt="Fungi Finders Logo"] {
+  view-transition-name: logo;
+}
+
+.hero__title {
+  view-transition-name: page-title;
+}
+
+[data-vt="guide-title"] {
+  view-transition-name: guide-title;
+}
+
+::view-transition-old(page-title),
+::view-transition-new(page-title),
+::view-transition-old(logo),
+::view-transition-new(logo) {
+  animation-timing-function: ease-in-out;
+}
+
 @layer reset {
   *,
   *::before,
@@ -416,6 +440,18 @@
     background-image: url("/assets/hero.webp");
     background-size: cover;
     background-position: center;
+
+    animation: fade-out;
+    animation-timeline: view();
+    animation-range-start: exit;
+  }
+  .card {
+    animation: fade-in;
+    animation-timeline: view();
+  }
+  .section {
+    animation: fade-out;
+    animation-timeline: view();
   }
 
   .hero__title {
@@ -640,26 +676,20 @@
   }
 }
 
-/* default is cross fade */
-@view-transition {
-  navigation: auto;
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
-.site-header img[alt="Fungi Finders Logo"] {
-  view-transition-name: logo;
-}
-
-.hero__title {
-  view-transition-name: page-title;
-}
-
-[data-vt="guide-title"] {
-  view-transition-name: guide-title;
-}
-
-::view-transition-old(page-title),
-::view-transition-new(page-title),
-::view-transition-old(logo),
-::view-transition-new(logo) {
-  animation-timing-function: ease-in-out;
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

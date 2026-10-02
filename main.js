@@ -31,6 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(() => {
       document.body.classList.remove("resizing");
     });
+
+    // document.setTimeout(() => {
+    //   document.body.classList.remove("resizing");
+    // }, 500);
   });
 
   resizeObserver.observe(document.body);
