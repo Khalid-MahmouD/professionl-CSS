@@ -1,0 +1,131 @@
+/* Scroll-Driven Animations Demo — starter file
+ * Complete the TODOs below for each exercise.
+ */
+
+:root {
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-gray-100: hsl(0, 2%, 79%);
+  --clr-brand-400: hsl(25, 88%, 75%);
+  --clr-brand-500: hsl(25, 88%, 66%);
+  --clr-green-500: hsl(143, 38%, 37%);
+  --clr-brown-600: hsl(9, 7%, 21%);
+  --clr-brown-700: hsl(9, 8%, 16%);
+  --clr-brown-900: hsl(0, 6%, 13%);
+
+  --text-main: var(--clr-gray-100);
+  --text-high-contrast: var(--clr-white);
+  --text-brand: var(--clr-brand-500);
+
+  --background-main: var(--clr-brown-700);
+  --background-dark: var(--clr-brown-900);
+  --background-accent: var(--clr-green-500);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  line-height: 1.6;
+  color: var(--text-main);
+  background-color: var(--background-main);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--text-high-contrast);
+  line-height: 1.1;
+}
+
+.flow > * + * {
+  margin-block-start: var(--flow-spacer, 1em);
+}
+
+.wrapper {
+  max-width: 900px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.site-header {
+  padding-block: 6rem;
+  text-align: center;
+  background-color: var(--background-dark);
+}
+
+.section {
+  padding-block: 6rem;
+}
+
+.background-accent {
+  background-color: var(--background-accent);
+}
+
+.site-footer {
+  padding-block: 3rem;
+  text-align: center;
+  background-color: var(--background-dark);
+}
+
+.gallery-card {
+  flex: 0 0 300px;
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--background-dark);
+  background-color: var(--clr-brand-400);
+  border-radius: 1rem;
+}
+
+/* ============================================================
+   TODO 1: Scroll progress bar
+   ============================================================ */
+
+/* Add .scroll-progress styles and @keyframes grow here */
+
+/* ============================================================
+   TODO 2: Reveal sections on scroll
+   ============================================================ */
+
+/* Add .reveal-on-scroll styles and @keyframes reveal here */
+
+/* ============================================================
+   TODO 4: Horizontal scroll gallery
+   ============================================================ */
+
+.horizontal-scroll-section {
+  /* Make this section tall enough to scroll through */
+  height: 300vh;
+  position: relative;
+  background-color: var(--background-dark);
+}
+
+.horizontal-track {
+  /* Sticky track that moves horizontally as the page scrolls */
+  position: sticky;
+  top: 0;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  height: 100vh;
+  padding-inline: 2rem;
+  overflow: hidden;
+
+  /* TODO: add animation and timeline here */
+}
+
+/* Add @keyframes slide-horizontal here */
+
+/* ============================================================
+   Accessibility: respect reduced motion
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  /* TODO: disable scroll-driven animations for sensitive users */
+}

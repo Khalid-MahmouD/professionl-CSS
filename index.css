@@ -441,17 +441,15 @@
     background-size: cover;
     background-position: center;
 
-    animation: fade-out;
+    animation: fade-out forwards;
     animation-timeline: view();
     animation-range-start: exit;
   }
+
   .card {
-    animation: fade-in;
+    animation: fade-in forwards;
     animation-timeline: view();
-  }
-  .section {
-    animation: fade-out;
-    animation-timeline: view();
+    /* animation-range-start: cover; */
   }
 
   .hero__title {
@@ -677,19 +675,19 @@
 }
 
 @keyframes fade-out {
-  0% {
+  from {
     opacity: 1;
   }
-  100% {
+  to {
     opacity: 0;
   }
 }
 
 @keyframes fade-in {
-  0% {
+  from {
     opacity: 0;
   }
-  100% {
+  to {
     opacity: 1;
   }
 }
