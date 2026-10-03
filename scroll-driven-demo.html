@@ -1,77 +1,80 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scroll-Driven Animations Demo</title>
-    <link rel="stylesheet" href="scroll-driven-demo.css" />
-  </head>
-  <body>
-    <!-- Exercise 1: add a scroll progress bar here -->
 
-    <header class="site-header">
-      <div class="wrapper">
-        <h1>Scroll-Driven Animations Demo</h1>
-        <p>Scroll down to see the effects.</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scroll-Driven Animations Demo</title>
+  <link rel="stylesheet" href="scroll-driven-demo.css" />
+</head>
+
+<body>
+  <!-- Exercise 1: add a scroll progress bar here -->
+  <div class="scroll-progress"></div>
+  <header class=" site-header">
+    <div class="wrapper">
+      <h1>Scroll-Driven Animations Demo</h1>
+      <p>Scroll down to see the effects.</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Exercise 2: add reveal-on-scroll class to each section -->
+    <section class="section reveal-on-scroll">
+      <div class="wrapper flow">
+        <h2>Section One</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
       </div>
-    </header>
+    </section>
 
-    <main>
-      <!-- Exercise 2: add reveal-on-scroll class to each section -->
-      <section class="section">
-        <div class="wrapper flow">
-          <h2>Section One</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </div>
-      </section>
+    <section class="section background-accent reveal-on-scroll">
+      <div class="wrapper flow">
+        <h2>Section Two</h2>
+        <p>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+          nisi ut aliquip ex ea commodo consequat.
+        </p>
+      </div>
+    </section>
 
-      <section class="section background-accent">
-        <div class="wrapper flow">
-          <h2>Section Two</h2>
-          <p>
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat.
-          </p>
-        </div>
-      </section>
+    <section class="section reveal-on-scroll">
+      <div class="wrapper flow">
+        <h2>Section Three</h2>
+        <p>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur.
+        </p>
+      </div>
+    </section>
 
-      <section class="section">
-        <div class="wrapper flow">
-          <h2>Section Three</h2>
-          <p>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur.
-          </p>
-        </div>
-      </section>
+    <!-- Exercise 4: horizontal scroll gallery -->
+    <section class="horizontal-scroll-section reveal-on-scroll">
+      <div class="horizontal-track">
+        <div class="gallery-card">Card 1</div>
+        <div class="gallery-card">Card 2</div>
+        <div class="gallery-card">Card 3</div>
+        <div class="gallery-card">Card 4</div>
+        <div class="gallery-card">Card 5</div>
+      </div>
+    </section>
 
-      <!-- Exercise 4: horizontal scroll gallery -->
-      <section class="horizontal-scroll-section">
-        <div class="horizontal-track">
-          <div class="gallery-card">Card 1</div>
-          <div class="gallery-card">Card 2</div>
-          <div class="gallery-card">Card 3</div>
-          <div class="gallery-card">Card 4</div>
-          <div class="gallery-card">Card 5</div>
-        </div>
-      </section>
+    <section class="section reveal-on-scroll">
+      <div class="wrapper flow">
+        <h2>Final Section</h2>
+        <p>
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+          officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+    </section>
+  </main>
 
-      <section class="section">
-        <div class="wrapper flow">
-          <h2>Final Section</h2>
-          <p>
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-            officia deserunt mollit anim id est laborum.
-          </p>
-        </div>
-      </section>
-    </main>
+  <footer class="site-footer">
+    <p>Built to practice scroll-driven animations.</p>
+  </footer>
+</body>
 
-    <footer class="site-footer">
-      <p>Built to practice scroll-driven animations.</p>
-    </footer>
-  </body>
 </html>

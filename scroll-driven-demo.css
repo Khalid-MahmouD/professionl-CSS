@@ -27,7 +27,12 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
     sans-serif;
   line-height: 1.6;
   color: var(--text-main);
@@ -86,19 +91,58 @@ h3 {
 /* ============================================================
    TODO 1: Scroll progress bar
    ============================================================ */
+/* Style it with position: fixed; inset: 0 0 auto 0; height: 6px; background: var(--text-brand); transform-origin: left;. */
 
 /* Add .scroll-progress styles and @keyframes grow here */
-
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 6px;
+  background: var(--text-brand);
+  transform-origin: left;
+}
+@keyframes grow {
+  from {
+    scale: 0 1;
+  }
+  to {
+    scale: 1 1;
+  }
+}
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    animation: grow linear both;
+    animation-timeline: scroll(root block);
+  }
+}
 /* ============================================================
    TODO 2: Reveal sections on scroll
    ============================================================ */
-
 /* Add .reveal-on-scroll styles and @keyframes reveal here */
-
+.reveal-on-scroll {
+  opacity: 0;
+  translate: 0 3rem;
+}
+@keyframes reveal {
+  from {
+    opacity: 0;
+    translate: 0 3rem;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@supports (animation-timeline: scroll()) {
+  .reveal-on-scroll {
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    animation-fill-mode: both;
+  }
+}
 /* ============================================================
    TODO 4: Horizontal scroll gallery
    ============================================================ */
-
 .horizontal-scroll-section {
   /* Make this section tall enough to scroll through */
   height: 300vh;
